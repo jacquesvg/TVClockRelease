@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="TvClock.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+</Solution>

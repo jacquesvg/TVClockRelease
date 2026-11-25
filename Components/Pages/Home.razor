@@ -1,0 +1,22 @@
+﻿@page "/"
+@using System.Globalization
+
+<div class="tv-center">
+    <button @ref="timeButton" class="tv-button" autofocus @onclick="ShowTime">Show date &amp; time</button>
+    <p class="tv-time">@snapshot?.ToString(CultureInfo.CurrentCulture)</p>
+</div>
+
+@code {
+    private ElementReference timeButton;
+    private DateTime? snapshot;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await timeButton.FocusAsync();
+        }
+    }
+
+    private void ShowTime() => snapshot = DateTime.Now;
+}
