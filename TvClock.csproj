@@ -27,8 +27,8 @@
         <ApplicationId>com.tvclock.app</ApplicationId>
 
         <!-- Versions -->
-        <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-        <ApplicationVersion>1</ApplicationVersion>
+		<ApplicationDisplayVersion>1.1</ApplicationDisplayVersion>
+		<ApplicationVersion>2</ApplicationVersion>
 
         <SupportedOSPlatformVersion>24.0</SupportedOSPlatformVersion>
     </PropertyGroup>
@@ -37,6 +37,8 @@
          Passwords come from environment variables TVCLOCK_KEYSTORE_PASS. -->
     <PropertyGroup Condition="'$(Configuration)' == 'Release'">
         <AndroidPackageFormat>apk</AndroidPackageFormat>
+		<!-- Include 32-bit ARM: many Android TVs/sticks are armeabi-v7a only. -->
+		<RuntimeIdentifiers>android-arm;android-arm64</RuntimeIdentifiers>
         <AndroidKeyStore>true</AndroidKeyStore>
         <AndroidSigningKeyStore>$(MSBuildProjectDirectory)\..\tvclock.keystore</AndroidSigningKeyStore>
         <AndroidSigningKeyAlias>tvclock</AndroidSigningKeyAlias>
